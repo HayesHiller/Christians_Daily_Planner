@@ -28,60 +28,56 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">9:00AM</div>
-        <input id="9Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=9><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+    <div class="container">
+      <div class="row time-block" id="9">
+        <div class="col-1 hour">9 AM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4 ">10:00AM</div>
-        <input id="10Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=10><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="10">
+        <div class="col-1 hour">10 AM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">11:00AM</div>
-        <input id="11Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=11><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="11">
+        <div class="col-1 hour">11 AM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">12:00PM</div>
-        <input id="12Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=12><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="12">
+        <div class="col-1 hour">12 PM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">1:00PM</div>
-        <input id="1Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=1><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="13">
+        <div class="col-1 hour">1 PM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">2:00PM</div>
-        <input id="2Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=2><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="14">
+        <div class="col-1 hour">2 PM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">3:00PM</div>
-        <input id="3Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=3><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="15">
+        <div class="col-1 hour">3 PM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">4:00PM</div>
-        <input id="4Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=4><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="16">
+        <div class="col-1 hour">4 PM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-      <div class="row">
-        <div class="col-md-1 col-sm-2 hour pt-4">5:00PM</div>
-        <input id="5Row" class="user-event-input col-md-10 col-sm-8 event-input-block">
-        <div class="col-md-1 col-sm-2 saveBtn" data-hour=5><img class="save-icon" src="icons8-save-50.png" alt="save"></div>
+      <div class="row time-block" id="17">
+        <div class="col-1 hour">5 PM</div>
+        <textarea class="col-10 schedule"></textarea>
+        <button class="col-1 saveBtn">Save</button>
       </div>
-
-    <br>
-
-    <button id = "clear" class = "clearBtn clearBtnHover">Clear Events</button>
-
-    <br><hr>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src = "script.js" type = "text/javascript"></script>
+    <script src="script.js"></script>
   </body>
 </html>
