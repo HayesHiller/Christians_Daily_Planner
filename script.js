@@ -1,71 +1,53 @@
-var hourlyArray;
-var currentTime = moment();
-var currentHour;
-var textBlock = $(".col-8");
-var plannerTask = $("textarea");
-$.each(plannerTask, function () {
-    this.value = "";
-});
+var hour9 = $("#9");
+var hour10 = $("#10");
+var hour11 = $("#11");
+var hour12 = $("#12");
+var hour1 = $("#13");
+var hour2 = $("#14");
+var hour3 = $("#15");
+var hour4 = $("#16");
+var hour5 = $("#17");
+var time = moment();
 
-if (localStorage.getItem("localHourlyTasks")) {
-    hourlyArray = JSON.parse(localStorage.getItem("localHourlyTasks"));
-} else {
-    hourlyArray = [];
-};
+function setPlanner() {
 
-$("#currentDay").text(`${currentTime.format('dddd, MMMM Do')}`);
+    $("#currentDay").text(moment().format("dddd, MMMM Do YYYY"));
 
-function updateCurrentScheduleTime() {
-    textBlock.removeClass('past present future');
-    $.each(textBlock, function (scheduleBlockHour) {
-        if (scheduleBlockHour < (currentTime.hour() - 9)) {
-            $(this).addClass('past');
-        } else if (scheduleBlockHour == (currentTime.hour() - 9)) {
-            $(this).addClass('present');
-        } else {
-            $(this).addClass('future');
+    $(".time-block").each(function () {
+        var id = $(this).attr("id");
+        var schedule = localStorage.getItem(id);
+
+        if (schedule !== null) {
+            $(this).children(".schedule").val(schedule);
         }
     });
-    currentHour = currentTime.hour();
-};
+}
 
-function updateLocalStorage() {
-    event.preventDefault();
-    let btnIndex = Number($(this).attr('id'));
-    $('.alert-success').removeClass('alert-animation');
+setPlanner();
+var saveBtn = $(".saveBtn");
 
-    if (plannerTask[btnIndex].value.trim() != "") {
-        hourlyArray[btnIndex] = {
-            time: $(".hour")[btnIndex].textContent.trim(),
-            task: plannerTask[btnIndex].value
-        };
+saveBtn.on("click", function () {
+    var time = $(this).parent().attr("id");
+    var schedule = $(this).siblings(".schedule").val();
 
-        localStorage.setItem("localHourlyTasks", JSON.stringify(hourlyArray));
-        setTimeout(function () {
-            $('.alert-success').addClass('alert-animation');
-            $('.alert-success').text(`Successfully saved task at ${$(".hour")[btnIndex].textContent.trim()}!`);
-        }, 100); 
-    };
-};
+    localStorage.setItem(time, schedule);
+});
 
-function writeCurrentTasks () {
-    $.each(hourlyArray, function (i) {
-        if (hourlyArray[i]) {
-            plannerTask[i].value = hourlyArray[i].task;
-        };
-    });
-};
+function pastPresentFuture() {
+    hour = time.hours();
+    $(".time-block").each(function () {
+        var thisHour = parseInt($(this).attr("id"));
 
-setInterval(function () {
-    currentTime = moment();
-    if(currentHour < currentTime.hour()) {
-        updateCurrentScheduleTime();
-    } else if (currentHour > currentTime.hour()) {
-        updateCurrentScheduleTime();
-        $("#currentDay").text(`${currentTime.format('dddd, MMMM Do')}`);
-    }
-}, 1000);
+        if (thisHour > hour) {
+            $(this).addClass("future")
+        }
+        else if (thisHour === hour) {
+            $(this).addClass("present");
+        }
+        else {
+            $(this).addClass("past");
+        }
+    })
+}
 
-updateCurrentScheduleTime();
-writeCurrentTasks();
-$("button").click(updateLocalStorage);
+pastPresentFuture();
